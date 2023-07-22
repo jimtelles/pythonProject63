@@ -98,13 +98,17 @@ class LinkedList:
             current_node.next = new_node
             new_node.next = None
 
-
-
     def insert_at_index(self, index: int, value: object) -> None:
         """
-        TODO: Write this implementation
+        Method takes in an index position, runs a for loop until it hits that index number
+        in the linked list, and inserts a value at that point.
         """
-        pass
+        current_node = self._head
+        for i in range(index):
+            current_node = current_node.next
+        temp = SLNode(value)
+        temp.next = current_node.next
+        current_node.next = temp
 
     def remove_at_index(self, index: int) -> None:
         """
@@ -153,16 +157,16 @@ if __name__ == "__main__":
         lst.insert_back(case)
         print(lst)
 
-    # print("\n# insert_at_index example 1")
-    # lst = LinkedList()
-    # test_cases = [(0, "A"), (0, "B"), (1, "C"), (3, "D"), (-1, "E"), (5, "F")]
-    # for index, value in test_cases:
-    #     print("Inserted", value, "at index", index, ": ", end="")
-    #     try:
-    #         lst.insert_at_index(index, value)
-    #         print(lst)
-    #     except Exception as e:
-    #         print(type(e))
+    print("\n# insert_at_index example 1")
+    lst = LinkedList()
+    test_cases = [(0, "A"), (0, "B"), (1, "C"), (3, "D"), (-1, "E"), (5, "F")]
+    for index, value in test_cases:
+        print("Inserted", value, "at index", index, ": ", end="")
+        try:
+            lst.insert_at_index(index, value)
+            print(lst)
+        except Exception as e:
+            print(type(e))
     #
     # print("\n# remove_at_index example 1")
     # lst = LinkedList([1, 2, 3, 4, 5, 6])
