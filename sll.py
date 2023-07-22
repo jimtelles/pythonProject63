@@ -69,7 +69,8 @@ class LinkedList:
 
     def insert_front(self, value: object) -> None:
         """
-        TODO: Write this implementation
+        Method inserts always inserts a value right after the head or sentinel node at the front
+        of the single linked list.
         """
         new_node = SLNode(value)
         if self._head.next is not None:
