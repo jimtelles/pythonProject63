@@ -80,15 +80,25 @@ class LinkedList:
             self._head.next = new_node
             new_node.next = None
 
-
-
-
-
     def insert_back(self, value: object) -> None:
         """
-        TODO: Write this implementation
+        Method adds to the end of a linked list. If the list is empty, it adds a node
+        after the head. If the list is not empty, it travels from node to node until
+        node.next = None, and then adds the new node, and points the new_node.next to
+        None.
         """
-        pass
+        new_node = SLNode(value)
+        if self._head.next is None:
+            self._head.next = new_node
+            new_node.next = None
+        else:
+            current_node = self._head
+            while current_node.next is not None:
+                current_node = current_node.next
+            current_node.next = new_node
+            new_node.next = None
+
+
 
     def insert_at_index(self, index: int, value: object) -> None:
         """
@@ -136,13 +146,13 @@ if __name__ == "__main__":
         lst.insert_front(case)
         print(lst)
 
-    # print("\n# insert_back example 1")
-    # test_case = ["C", "B", "A"]
-    # lst = LinkedList()
-    # for case in test_case:
-    #     lst.insert_back(case)
-    #     print(lst)
-    #
+    print("\n# insert_back example 1")
+    test_case = ["C", "B", "A"]
+    lst = LinkedList()
+    for case in test_case:
+        lst.insert_back(case)
+        print(lst)
+
     # print("\n# insert_at_index example 1")
     # lst = LinkedList()
     # test_cases = [(0, "A"), (0, "B"), (1, "C"), (3, "D"), (-1, "E"), (5, "F")]
