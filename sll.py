@@ -104,7 +104,7 @@ class LinkedList:
         in the linked list, and inserts a value at that point.
         """
         length = self.length()
-        if index < 0 or index > length - 1:
+        if index < 0 or index > length:
             raise SLLException
 
         current_node = self._head
