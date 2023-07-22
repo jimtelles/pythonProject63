@@ -104,7 +104,7 @@ class LinkedList:
         in the linked list, and inserts a value at that point.
         """
         length = self.length()
-        if index < 0 or index > length:
+        if index < 0 or index > length - 1:
             raise SLLException
 
         current_node = self._head
@@ -116,9 +116,16 @@ class LinkedList:
 
     def remove_at_index(self, index: int) -> None:
         """
-        TODO: Write this implementation
+        Method removes a node from the index position passed in.
         """
-        pass
+        length = self.length()
+        if index < 0 or index > length - 1:
+            raise SLLException
+
+        current_node = self._head
+        for i in range(index):
+            current_node = current_node.next
+        current_node.next = current_node.next.next
 
     def remove(self, value: object) -> bool:
         """
@@ -171,17 +178,17 @@ if __name__ == "__main__":
             print(lst)
         except Exception as e:
             print(type(e))
-    #
-    # print("\n# remove_at_index example 1")
-    # lst = LinkedList([1, 2, 3, 4, 5, 6])
-    # print(f"Initial LinkedList : {lst}")
-    # for index in [0, 2, 0, 2, 2, -2]:
-    #     print("Removed at index", index, ": ", end="")
-    #     try:
-    #         lst.remove_at_index(index)
-    #         print(lst)
-    #     except Exception as e:
-    #         print(type(e))
+
+    print("\n# remove_at_index example 1")
+    lst = LinkedList([1, 2, 3, 4, 5, 6])
+    print(f"Initial LinkedList : {lst}")
+    for index in [0, 2, 0, 2, 2, -2]:
+        print("Removed at index", index, ": ", end="")
+        try:
+            lst.remove_at_index(index)
+            print(lst)
+        except Exception as e:
+            print(type(e))
     #
     # print("\n# remove example 1")
     # lst = LinkedList([1, 2, 3, 1, 2, 3, 1, 2, 3])
