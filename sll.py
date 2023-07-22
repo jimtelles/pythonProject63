@@ -103,6 +103,10 @@ class LinkedList:
         Method takes in an index position, runs a for loop until it hits that index number
         in the linked list, and inserts a value at that point.
         """
+        length = self.length()
+        if index < 0 or index > length:
+            raise SLLException
+
         current_node = self._head
         for i in range(index):
             current_node = current_node.next
