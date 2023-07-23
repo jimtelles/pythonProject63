@@ -119,7 +119,7 @@ class LinkedList:
         Method removes a node from the index position passed in.
         """
         length = self.length()
-        if index < 0 or index > length:
+        if index < 0 or index > length - 1:
             raise SLLException
 
         current_node = self._head
