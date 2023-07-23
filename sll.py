@@ -143,11 +143,12 @@ class LinkedList:
             else:
                 boolean_holder.append(False)
         for ind_2 in range(self.length()):
-            if boolean_holder[ind_2] == True:
+            if boolean_holder[ind_2]:
                 index_holder.append(ind_2)
-        for ind_3 in range(len(index_holder) - 1):
-            self.remove_at_index(ind_3)
-            index_holder[ind_3 + 1] = index_holder[ind_3] - 1
+        if not index_holder:
+            return False
+        else:
+            self.remove_at_index(index_holder[0])
         new_length = self.length()
         if new_length < initial_length:
             return True
