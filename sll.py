@@ -162,7 +162,6 @@ class LinkedList:
         Method scans the linked list for a value, and if that value is found,
         returns the number of times it appears in the list.
         """
-
         index_holder = []
         boolean_holder = []
         current = self._head
@@ -183,12 +182,27 @@ class LinkedList:
                 count = count + 1
             return count
 
-
     def find(self, value: object) -> bool:
         """
-        TODO: Write this implementation
+        Method scans the linked list for a value, if found, returns True, if not found
+        returns False.
         """
-        pass
+        index_holder = []
+        boolean_holder = []
+        current = self._head
+        for ind_1 in range(self.length()):
+            current = current.next
+            if current.value == value:
+                boolean_holder.append(True)
+            else:
+                boolean_holder.append(False)
+        for ind_2 in range(self.length()):
+            if boolean_holder[ind_2]:
+                index_holder.append(ind_2)
+        if not index_holder:
+            return False
+        else:
+            return True
 
     def slice(self, start_index: int, size: int) -> "LinkedList":
         """
@@ -249,17 +263,17 @@ if __name__ == "__main__":
     #     print(f"remove({value}): {lst.remove(value)}, Length: {lst.length()}"
     #           f"\n {lst}")
     #
-    print("\n# count example 1")
-    lst = LinkedList([1, 2, 3, 1, 2, 2])
-    print(lst, lst.count(1), lst.count(2), lst.count(3), lst.count(4))
+    # print("\n# count example 1")
+    # lst = LinkedList([1, 2, 3, 1, 2, 2])
+    # print(lst, lst.count(1), lst.count(2), lst.count(3), lst.count(4))
 
-    # print("\n# find example 1")
-    # lst = LinkedList(["Waldo", "Clark Kent", "Homer", "Santa Claus"])
-    # print(lst)
-    # print(lst.find("Waldo"))
-    # print(lst.find("Superman"))
-    # print(lst.find("Santa Claus"))
-    #
+    print("\n# find example 1")
+    lst = LinkedList(["Waldo", "Clark Kent", "Homer", "Santa Claus"])
+    print(lst)
+    print(lst.find("Waldo"))
+    print(lst.find("Superman"))
+    print(lst.find("Santa Claus"))
+
     # print("\n# slice example 1")
     # lst = LinkedList([1, 2, 3, 4, 5, 6, 7, 8, 9])
     # ll_slice = lst.slice(1, 3)
