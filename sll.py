@@ -129,7 +129,9 @@ class LinkedList:
 
     def remove(self, value: object) -> bool:
         """
-        TODO: Write this implementation
+        Method scans entire list for a value, and if that value is found, removes the first
+        occurrence of that value, and returns True, else it returns False if that value is
+        not found in the linked list.
         """
         initial_length = self.length()
         new_length = initial_length
@@ -157,9 +159,30 @@ class LinkedList:
 
     def count(self, value: object) -> int:
         """
-        TODO: Write this implementation
+        Method scans the linked list for a value, and if that value is found,
+        returns the number of times it appears in the list.
         """
-        pass
+
+        index_holder = []
+        boolean_holder = []
+        current = self._head
+        for ind_1 in range(self.length()):
+            current = current.next
+            if current.value == value:
+                boolean_holder.append(True)
+            else:
+                boolean_holder.append(False)
+        for ind_2 in range(self.length()):
+            if boolean_holder[ind_2]:
+                index_holder.append(ind_2)
+        if not index_holder:
+            return 0
+        else:
+            count = 0
+            for ind_3 in range(len(index_holder)):
+                count = count + 1
+            return count
+
 
     def find(self, value: object) -> bool:
         """
@@ -201,35 +224,35 @@ if __name__ == "__main__":
     #     except Exception as e:
     #         print(type(e))
     #
-    print("\n# remove_at_index example 1")
-    lst = LinkedList([1, 2, 3, 4, 5, 6])
-    print(f"Initial LinkedList : {lst}")
-    for index in [0, 2, 0, 2, 2, -2]:
-        print("Removed at index", index, ": ", end="")
-        try:
-            lst.remove_at_index(index)
-            print(lst)
-        except Exception as e:
-            print(type(e))
-
-    print("\n# remove example 1")
-    lst = LinkedList([1, 2, 3, 1, 2, 3, 1, 2, 3])
-    print(f"Initial LinkedList, Length: {lst.length()}\n  {lst}")
-    for value in [7, 3, 3, 3, 3]:
-        print(f"remove({value}): {lst.remove(value)}, Length: {lst.length()}"
-              f"\n {lst}")
-
-    print("\n# remove example 2")
-    lst = LinkedList([1, 2, 3, 1, 2, 3, 1, 2, 3])
-    print(f"Initial LinkedList, Length: {lst.length()}\n  {lst}")
-    for value in [1, 2, 3, 1, 2, 3, 3, 2, 1]:
-        print(f"remove({value}): {lst.remove(value)}, Length: {lst.length()}"
-              f"\n {lst}")
+    # print("\n# remove_at_index example 1")
+    # lst = LinkedList([1, 2, 3, 4, 5, 6])
+    # print(f"Initial LinkedList : {lst}")
+    # for index in [0, 2, 0, 2, 2, -2]:
+    #     print("Removed at index", index, ": ", end="")
+    #     try:
+    #         lst.remove_at_index(index)
+    #         print(lst)
+    #     except Exception as e:
+    #         print(type(e))
     #
-    # print("\n# count example 1")
-    # lst = LinkedList([1, 2, 3, 1, 2, 2])
-    # print(lst, lst.count(1), lst.count(2), lst.count(3), lst.count(4))
+    # print("\n# remove example 1")
+    # lst = LinkedList([1, 2, 3, 1, 2, 3, 1, 2, 3])
+    # print(f"Initial LinkedList, Length: {lst.length()}\n  {lst}")
+    # for value in [7, 3, 3, 3, 3]:
+    #     print(f"remove({value}): {lst.remove(value)}, Length: {lst.length()}"
+    #           f"\n {lst}")
     #
+    # print("\n# remove example 2")
+    # lst = LinkedList([1, 2, 3, 1, 2, 3, 1, 2, 3])
+    # print(f"Initial LinkedList, Length: {lst.length()}\n  {lst}")
+    # for value in [1, 2, 3, 1, 2, 3, 3, 2, 1]:
+    #     print(f"remove({value}): {lst.remove(value)}, Length: {lst.length()}"
+    #           f"\n {lst}")
+    #
+    print("\n# count example 1")
+    lst = LinkedList([1, 2, 3, 1, 2, 2])
+    print(lst, lst.count(1), lst.count(2), lst.count(3), lst.count(4))
+
     # print("\n# find example 1")
     # lst = LinkedList(["Waldo", "Clark Kent", "Homer", "Santa Claus"])
     # print(lst)
