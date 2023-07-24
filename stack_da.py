@@ -75,9 +75,15 @@ class Stack:
 
     def top(self) -> object:
         """
-        TODO: Write this implementation
+        Method returns the top value in a stack.
         """
-        pass
+        if self.size == 0:
+            raise StackException
+        else:
+            counter = 0
+            for ind in range(0, self.size() - 1):
+                counter = counter + 1
+            return self._da[counter]
 
 
 # ------------------- BASIC TESTING -----------------------------------------
