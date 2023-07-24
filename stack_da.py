@@ -61,16 +61,14 @@ class Stack:
         """
         Method removes last value in the stack, and displays it.
         """
-        counter = 0
         if self.size() == 0:
             raise StackException
         else:
             number_popped = 0
-            for ind in range(0, self.size() - 1):
-                counter = counter + 1
-            number_popped = self._da[counter]
-            self._da.remove_at_index(counter)
-            return number_popped
+            for ind in range(self.size() - 1, -1, -1):
+                number_popped = self._da[ind]
+                self._da.remove_at_index(ind)
+                return number_popped
 
 
     def top(self) -> object:
@@ -80,10 +78,8 @@ class Stack:
         if self.size == 0:
             raise StackException
         else:
-            counter = 0
-            for ind in range(0, self.size() - 1):
-                counter = counter + 1
-            return self._da[counter]
+            for ind in range(self.size() - 1, -1, -1):
+                return self._da[ind]
 
 
 # ------------------- BASIC TESTING -----------------------------------------
